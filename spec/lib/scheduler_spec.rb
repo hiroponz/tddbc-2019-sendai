@@ -25,5 +25,13 @@ RSpec.describe Scheduler do
         expect(scheduler.to_s).to eq '32 9 18'
       end
     end
+
+    context '23時59分59秒を与える' do
+      let(:scheduler){ Scheduler.new(hour: 23, min: 59, sec: 59) }
+
+      it '文字列表現は文字列 "59 59 23" となる' do
+        expect(scheduler.to_s).to eq '59 59 23'
+      end
+    end
   end
 end
