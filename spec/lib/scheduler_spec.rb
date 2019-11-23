@@ -16,4 +16,14 @@ RSpec.describe Scheduler do
       end
     end
   end
+
+  describe 'スケジューラーの文字列表現を取得する' do
+    context '18時9分32秒を与える' do
+      let(:scheduler){ Scheduler.new(hour: 18, min: 9, sec: 32) }
+
+      it '文字列表現は文字列 "32 9 18" となる' do
+        expect(scheduler.to_s).to eq '32 9 18'
+      end
+    end
+  end
 end
