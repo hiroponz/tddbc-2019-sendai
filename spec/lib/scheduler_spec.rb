@@ -59,21 +59,19 @@ RSpec.describe Scheduler do
     end
   end
 
-  describe '時刻が一致するかを判断する' do
-    context 'スケジューラー設定を18時9分32秒で生成する' do
+  describe '実行時刻かを判断する' do
+    context 'スケジューラー設定を"32 9 18"で生成する' do
       let(:scheduler){ Scheduler.new(hour: 18, min: 9, sec: 32) }
 
-      it '時刻は18時9分32秒と一致する' do
+      it '実行時刻は「18時9分32秒」と一致する' do
         expect(scheduler.match?(hour: 18, min: 9, sec: 32)).to eq true
       end
 
-      it '時刻は8時7分15秒と一致しない' do
+      it '実行時刻は「8時7分15秒」と一致しない' do
         expect(scheduler.match?(hour: 8, min: 7, sec: 15)).to eq false
       end
     end
-  end
 
-  describe '毎時の設定のとき' do
     context 'スケジューラー設定を"32 9 *"で生成する' do
       let(:scheduler){ Scheduler.new(hour: nil, min: 9, sec: 32) }
 
@@ -85,9 +83,7 @@ RSpec.describe Scheduler do
         expect(scheduler.match?(hour: 23, min: 9, sec: 32)).to eq true
       end
     end
-  end
 
-  describe '毎分の設定のとき' do
     context 'スケジューラー設定を"32 * 23"で生成する' do
       let(:scheduler){ Scheduler.new(hour: 23, sec: 32) }
 
@@ -99,9 +95,7 @@ RSpec.describe Scheduler do
         expect(scheduler.match?(hour: 23, min: 59, sec: 32)).to eq true
       end
     end
-  end
 
-  describe '毎秒の設定のとき' do
     context 'スケジューラー設定を"* 9 23"で生成する' do
       let(:scheduler){ Scheduler.new(hour: 23, min: 9) }
 
