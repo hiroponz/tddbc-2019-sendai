@@ -8,7 +8,7 @@ RSpec.describe Scheduler do
       end
     end
 
-    context '引数をを与えない' do
+    context '引数を与えない' do
       let(:scheduler){ Scheduler.new }
 
       it '設定オブジェクトの作成で例外が発生する' do
