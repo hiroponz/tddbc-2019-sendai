@@ -41,6 +41,22 @@ RSpec.describe Scheduler do
         expect(scheduler.to_s).to eq '59 59 23'
       end
     end
+
+    context '9分32秒を与える' do
+      let(:scheduler){ Scheduler.new(min: 9, sec: 32) }
+
+      it '文字列表現は文字列 "32 9 *" となる' do
+        expect(scheduler.to_s).to eq '32 9 *'
+      end
+    end
+
+    context '引数を省略する' do
+      let(:scheduler){ Scheduler.new }
+
+      it '文字列表現は文字列 "* * *" となる' do
+        expect(scheduler.to_s).to eq '* * *'
+      end
+    end
   end
 
   describe '時刻が一致するかを判断する' do

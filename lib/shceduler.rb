@@ -7,7 +7,11 @@ class Scheduler
   end
 
   def to_s
-    [sec, min, hour].join(' ')
+    [
+      sec || '*',
+      min || '*',
+      hour || '*'
+    ].join(' ')
   end
 
   def match?(hour:, min:, sec:)
