@@ -11,6 +11,6 @@ class Scheduler
   end
 
   def match?(hour:, min:, sec:)
-    true
+    @hour == hour && @min == min && @sec == sec
   end
 end

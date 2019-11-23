@@ -42,6 +42,10 @@ RSpec.describe Scheduler do
       it '時刻は18時9分32秒と一致する' do
         expect(scheduler.match?(hour: 18, min: 9, sec: 32)).to eq true
       end
+
+      it '時刻は8時7分15秒と一致しない' do
+        expect(scheduler.match?(hour: 8, min: 7, sec: 15)).to eq false
+      end
     end
   end
 end
