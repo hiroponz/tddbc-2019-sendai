@@ -9,4 +9,8 @@ class Scheduler
   def to_s
     [sec, min, hour].join(' ')
   end
+
+  def match?(hour:, min:, sec:)
+    true
+  end
 end

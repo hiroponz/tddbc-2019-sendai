@@ -34,4 +34,14 @@ RSpec.describe Scheduler do
       end
     end
   end
+
+  describe '時刻が一致するかを判断する' do
+    context 'スケジューラー設定を18時9分32秒で生成する' do
+      let(:scheduler){ Scheduler.new(hour: 18, min: 9, sec: 32) }
+
+      it '時刻は18時9分32秒と一致する' do
+        expect(scheduler.match?(hour: 18, min: 9, sec: 32)).to eq true
+      end
+    end
+  end
 end
