@@ -56,4 +56,14 @@ RSpec.describe Scheduler do
       end
     end
   end
+
+  describe '毎時の設定のとき' do
+    context 'スケジューラー設定を"32 9 *"で生成する' do
+      let(:scheduler){ Scheduler.new(hour: nil, min: 9, sec: 32) }
+
+      it '実行時刻は「0時9分32秒」に一致する' do
+        expect(scheduler.match?(hour: 0, min: 9, sec: 32)).to eq true
+      end
+    end
+  end
 end
