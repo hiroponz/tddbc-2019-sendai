@@ -1,6 +1,6 @@
 class Scheduler
   attr_reader :hour, :min, :sec
-  def initialize(hour:, min:, sec:)
+  def initialize(hour: nil, min: nil, sec: nil)
     @hour = hour
     @min = min
     @sec = sec
